@@ -18,9 +18,12 @@ public class Refrigerator implements TemperatureControl{
     /**
      * Минимально возможная температура холодильника
      */
-    private double minTemperature;
+    private final double minTemperature;
 
-    private double maxTemperature;
+    /**
+     * Максимально возможная температура холодильника
+     */
+    private final double maxTemperature;
 
     /**
      * Ширина холодилника
@@ -44,7 +47,8 @@ public class Refrigerator implements TemperatureControl{
 
     /**
      * Конструктор холодильника
-     * @param minTemperature
+     * @param maxTemperature максимальная температура внутри холодильника
+     * @param minTemperature минимальная температура внутри холодильниа
      */
     public Refrigerator(double maxTemperature, double minTemperature){
         this.isOn = false;
@@ -76,7 +80,7 @@ public class Refrigerator implements TemperatureControl{
      * Устанавливает температуру внутри холодильника
      * @param temperature температура в градусах цельсия
      */
-    public void setTemperature(int temperature) {
+    public void setTemperature(double temperature) {
         if (isOn) {
             if(temperature < minTemperature || temperature > maxTemperature){
                 this.temperature = maxTemperature;
@@ -132,24 +136,40 @@ public class Refrigerator implements TemperatureControl{
 
     /**
      * Задаёт глубину холодильника
-     * @param depth
+     * @param depth глубина в см
      */
     public void setDepth(double depth) {
         this.depth = depth;
     }
 
+    /**
+     * Получает высоту холодильника
+     * @return высота в см
+     */
     public double getHeight() {
         return height;
     }
 
+    /**
+     * Устанавливает высоту холодильника
+     * @param height высота в см
+     */
     public void setHeight(double height) {
         this.height = height;
     }
 
+    /**
+     * Получает тип компрессора
+     * @return тип компрессора
+     */
     public String getCompressorType() {
         return compressorType;
     }
 
+    /**
+     * Устаавливает тип компрессора
+     * @param compressorType тип компрессора
+     */
     public void setCompressorType(String compressorType) {
         this.compressorType = compressorType;
     }
