@@ -8,6 +8,7 @@
 
     <context:property-placeholder location="config.properties"/>
     <bean id="refrigerator" class="com.example.firstproject.Refrigerator">
+        <constructor-arg value="${maxTemperature}"/>
         <constructor-arg value="${minTemperature}"/>
         <property name="height" value="${height}"/>
         <property name="depth" value="${depth}"/>
@@ -15,7 +16,7 @@
         <property name="compressorType" value="${compressorType}"/>
     </bean>
 
-    <bean id="refrigeratorController" class="com.example.firstproject.RefrigeratorController">
+    <bean id="refrigeratorController" class="com.example.firstproject.User">
         <constructor-arg ref="refrigerator"/>
     </bean>
 </beans>
